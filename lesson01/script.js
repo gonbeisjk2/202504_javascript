@@ -80,3 +80,39 @@ document.body.insertAdjacentHTML('beforeend', html);
 const price = 100;
 let priceFruits = `今日の特価品はりんご: ${price - price * 0.1}円`;
 console.log(priceFruits);
+
+//配列
+let fruits = ['りんご', 'みかん', 'ぶどう'];
+console.log(fruits);
+console.log(fruits[1]);
+fruits[1] = 'バナナ';
+
+console.log(fruits.join(' ☺️ '));
+
+let fruitsCount = fruits.push('なし'); //元の配列が変化する
+console.log(fruits, fruitsCount);
+
+fruits.pop();
+console.log(fruits);
+
+// ブーリアン
+let email2 = 'taro@yamada.co.jp';
+console.log(email2.includes('#'));
+
+let limit = '50';
+console.log(limit == 50); // true
+console.log(limit === 50); // false
+console.log(limit !== 50); // true
+console.log(limit >= 30); // true
+
+// 型変換
+console.log(typeof 123);
+console.log(typeof '123');
+let score = '100';
+console.log(typeof Number(score));
+score = Number(score);
+console.log(score - 20);
+
+let newAge = document.forms[0].age.value;
+newAge = Number(newAge);
+console.log(newAge);
