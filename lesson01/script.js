@@ -43,3 +43,40 @@ console.log(email.indexOf('@'));
 console.log(email.slice(email.indexOf('@') + 1));//ドメイン部分のみ切り出し
 
 console.log(email.replace('taro', 'jiro'));
+
+// 数字
+console.log(16 / 4);
+const PI = 3.14;
+let radius = 8;
+console.log(PI * radius ** 2);
+
+let num = 1;
+num = num + 1;
+console.log(num);
+
+num += 1; // num = num + 1 と同等
+console.log(num);
+
+num++; // num += 1 と同等
+console.log(num);
+num--; // num -= 1 と同等
+console.log(num);
+// ++num; // 手前に記号を書くと優先度が上がる
+
+// テンプレートリテラル
+const author = '山田太郎';
+const likes = 25;
+let result = 'この記事の投稿者: ' + author + ', いいねの数: ' + likes;
+console.log(result);
+
+result = `この記事の投稿者: ${author}, いいねの数: ${likes}`;
+console.log(result);
+
+let sample = "今日の天気は\"快晴\"です。";
+
+let html = `<p class="detail">この記事の投稿者: ${author}, いいねの数: ${likes}</p>`;
+document.body.insertAdjacentHTML('beforeend', html);
+
+const price = 100;
+let priceFruits = `今日の特価品はりんご: ${price - price * 0.1}円`;
+console.log(priceFruits);
