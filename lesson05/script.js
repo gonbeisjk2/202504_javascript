@@ -57,3 +57,59 @@ contentP.forEach(p => {
     p.classList.add('error');
   }
 });
+
+// 子要素の取得
+const article = document.querySelector('article');
+console.log(article.children);
+
+//配列への変換
+const articleArr = Array.from(article.children);
+articleArr.forEach(child => {
+  child.classList.add('article-child');
+});
+
+// 親要素の取得
+const h2 = document.querySelector('h2');
+console.log(h2.parentElement);
+console.log(h2.closest('article')); //特定の先祖要素を検索する
+
+
+// 兄弟要素の取得
+console.log(h2.nextElementSibling);
+console.log(h2.previousElementSibling);
+
+// イベントの基礎
+const button = document.querySelector('button');
+const ul = document.querySelector('ul');
+
+button.addEventListener('click', () => {
+  // ul.innerHTML += '<li>新しいToDo</li>';
+  const li = document.createElement('li');
+  li.textContent = '新しいToDo';
+  ul.append(li);
+});
+
+// const lists = document.querySelectorAll('li');
+// lists.forEach(list => {
+//   list.addEventListener('click', event => {
+//     // thisは使えない
+//     console.log(event.target);//クリックしたLI要素が取得できる
+//     console.log('リストをクリックしました');
+
+//     // event.target.style.textDecoration = 'line-through';
+//     event.target.remove(); //要素の削除
+
+//     // 先祖要素にイベントを波及させない
+//     event.stopPropagation();
+//   });
+// });
+
+ul.addEventListener('click', event => {
+  console.log('ulをクリックしました');
+  console.log(event);
+
+  // クリックした要素がLI要素かどうかを調べる
+  if (event.target.tagName === 'LI') {
+    event.target.remove();
+  }
+})
