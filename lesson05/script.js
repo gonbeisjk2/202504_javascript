@@ -46,3 +46,14 @@ error2.classList.toggle('def'); //無いので追加
 error2.classList.toggle('abc'); //あるので削除
 
 //5-7のクイズ
+const contentP = document.querySelectorAll('.content > p');
+contentP.forEach(p => {
+  console.log(p.textContent);
+  console.log(p.textContent.includes('エラー'))
+  if (p.textContent.includes('サクセス')) {
+    p.classList.add('success');
+  }
+  else if (p.textContent.includes('エラー')) {
+    p.classList.add('error');
+  }
+});
