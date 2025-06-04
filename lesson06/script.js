@@ -1,6 +1,7 @@
 const form = document.querySelector('.signup-form');
 // const username = document.querySelector('#username');
 const message = document.querySelector('.message');
+const pattern = /^[a-zA-Z0-9]{6,12}$/;
 
 form.addEventListener('submit', event => {
   event.preventDefault();
@@ -8,7 +9,6 @@ form.addEventListener('submit', event => {
   console.log(form.username.value);
 
   const username = form.username.value;
-  const pattern = /^[a-zA-Z0-9]{6,12}$/;
 
   if (pattern.test(username)) {
     message.textContent = '使用できるユーザ名です';
@@ -18,9 +18,20 @@ form.addEventListener('submit', event => {
   }
 });
 
-// 正規表現
-const username = 'taroyamada';
-const pattern = /^[a-zA-Z0-9]{6,12}$/;
+form.username.addEventListener('keyup', event => {
+  console.log(event.target.value);
+  if (pattern.test(event.target.value)) {
+    event.target.classList.remove('error');
+    event.target.classList.add('success');
+  } else {
+    event.target.classList.remove('success');
+    event.target.classList.add('error');
+  }
+});
 
-console.log(pattern.test(username));
-console.log(username.search(pattern));
+// 正規表現
+// const username = 'taroyamada';
+// const pattern = /^[a-zA-Z0-9]{6,12}$/;
+
+// console.log(pattern.test(username));
+// console.log(username.search(pattern));
